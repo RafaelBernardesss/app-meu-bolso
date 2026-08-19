@@ -7,8 +7,8 @@ import {
 }
     from 'react-native';
 //components
-import AppInput from '../components/AppInput.js';
-import AppButton from '../components/AppButton.js';
+import AppInput from "../src/components/AppInput.js";
+import AppButton from "../src/components/AppButton.js";
 
 export default function Login() {
 
@@ -31,6 +31,6 @@ export default function Login() {
     );
 }
 
-const styles = StyleSheetreate({
+const styles = StyleSheet.create({
 
 });

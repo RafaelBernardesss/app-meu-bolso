@@ -12,7 +12,7 @@ export const COLORS = {
     danger: '#ff4757'
 };
 
-export const SAPACING ={
+export const SPACING ={
     sm: 8,
     md: 16,
     lg: 24,

@@ -4,7 +4,7 @@ import {
     TouchableOpacity,
     StyleSheet
 } from "react-native";
-import { COLORS, RADIUS, SPACING } from '../constants/Theme.js';
+import { COLORS, RADIUS, SPACING } from "../constants/Theme.js";
 
 export default function AppButton({ title, onPress, loading = false, disabled = false }) {
     return (

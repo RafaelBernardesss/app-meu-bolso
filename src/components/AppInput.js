@@ -4,7 +4,7 @@ import {
     View,
     StyleSheet,
 } from 'react-native'
-import {COLORS, RADIUS, SPACING} from '../constants/Theme.js';
+import {COLORS, RADIUS, SPACING} from '../constants/Theme';
 
 export default function AppInput({label, error, ...props}){
     return(
