@@ -31,7 +31,7 @@ input:{
     borderWidth: 1,
     borderColor: COLORS.border,
     borderRadius: RADIUS.md,
-    padding: SPACING.md,
+    padding: SPACING.sm,
     fontSize: 16
 },
 

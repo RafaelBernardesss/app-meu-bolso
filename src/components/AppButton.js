@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     },
     text: {
         color: '#fff',
-        fontSize: 15,
+        fontSize: 16,
         fontWeight: '700'
     }
 })
