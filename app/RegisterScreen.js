@@ -23,13 +23,14 @@ export default function Register(){
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
     const [confirm, setConfirm] = useState('');
-    const [loading, setLoafing] = useState(false)
+    const [loading, setLoading] = useState(false)
 
     const router = useRouter()
 
     //trim é uma função ou metodo usado para remover espaços em branco
     async function handleRegister() {
-        if(!email.trim()||!senha||!confirm){
+
+        if(!email||!senha||!confirm){
            return Alert.alert("Preencha todos os campos!")
         }
 
@@ -43,9 +44,10 @@ export default function Register(){
 
         try{
             setLoading(true);
+
             const {data,error} = 
             await signUp (email.trim(), senha);
-            if(erro){
+            if(error){
                 return Alert.alert('Erro', error.message);
                 console.log('Erro', error.message);
                 return;
@@ -56,7 +58,7 @@ export default function Register(){
                 Alert.alert('Cadastro Realizado', 'Confirme seu e-mail, se necessario.');
                 router.replace('/');
             }
-        }finally {setLoafing(false);}
+        }finally {setLoading(false);}
     } 
 
     return(
@@ -71,7 +73,7 @@ export default function Register(){
                 value={email} onChangeText={setEmail}/>
                  <Appinput label="Senha" secureTextEntry value={senha} onChangeText={setSenha} placeholder="Digite sua senha" />
                  <Appinput label="Confirmar Senha" secureTextEntry value={confirm} onChangeText={setConfirm} placeholder="Digite sua senha" />
-                <AppButton title="Registrar"/>
+                <AppButton title="Registrar" onPress={handleRegister}/>
                 <TouchableOpacity>
                     <Text style={styles.link} onPress={() => router.push('/')}>Já tem uma conta?</Text>
                 </TouchableOpacity>
