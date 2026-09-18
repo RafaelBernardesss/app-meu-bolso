@@ -5,21 +5,53 @@ import {
     Text,
     TouchableOpacity,
     KeyboardAvoidingView,
-    Platform
+    Platform,
+    Alert
 }
     from 'react-native';
 //components
 import AppInput from "../src/components/AppInput.js";
 import AppButton from "../src/components/AppButton.js";
-import {useRouter} from  "expo-router"
+import {useRouter} from  "expo-router";
+import { signIn } from '../src/service/authService.js';
 
 export default function Login() {
 
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [senha, setSenha] = useState('');
     const [loading, setLoading] = useState(false);
 
     const router = useRouter();
+
+    async function handleLogin() {
+        if(!email || !senha){
+            return Alert.alert("Preencha todos os campos")
+        }
+        
+        try{
+
+            setLoading(true);
+            const {data,error} =
+            await signIn (email.trim(), senha);
+            if(error){
+                return Alert.alert('Erro', error.message);
+                console.log('Erro', error.message);
+                return;
+            }
+
+            console.log("entrando na data")
+            if(data?.user){
+              return  Alert.alert("Login realizado com sucesso")
+               router.push('/HomeScreen')
+             
+
+            } else{
+                Alert.alert("Erro", "Não foi possivel encontrar o usuario.");
+            }
+            
+
+        } finally{setLoading(false)}
+    }
 
     return (
         <KeyboardAvoidingView style={styles.container}
@@ -29,8 +61,8 @@ export default function Login() {
                 <Text style={styles.subtitle}>Controle suas finanças</Text>
                 <AppInput label="Email" placeholder="Digite seu email" autoCapitalize="none" keyboardType="email-address"
                     value={email} onChangeText={setEmail} />
-                <AppInput label="Senha" secureTextEntry value={password} onChangeText={setPassword} placeholder="Digite sua senha" />
-                <AppButton title="Entrar" loading={loading} />
+                <AppInput label="Senha" secureTextEntry value={senha} onChangeText={setSenha} placeholder="Digite sua senha" />
+                <AppButton title="Entrar" loading={loading} onPress={handleLogin} />
                 <TouchableOpacity>
                     <Text style={styles.link} onPress={() => router.push('/RegisterScreen')}>Criar nova conta</Text>
                 </TouchableOpacity>

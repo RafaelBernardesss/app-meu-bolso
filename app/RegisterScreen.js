@@ -27,7 +27,7 @@ export default function Register(){
 
     const router = useRouter()
 
-    //trim é uma função ou metodo usado para remover espaços em branco
+    
     async function handleRegister() {
 
         if(!email||!senha||!confirm){
@@ -52,7 +52,6 @@ export default function Register(){
                 console.log('Erro', error.message);
                 return;
             }
-            if(data.session) router.replace();
             
             else{
                 Alert.alert('Cadastro Realizado', 'Confirme seu e-mail, se necessario.');
