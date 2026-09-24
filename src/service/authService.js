@@ -13,4 +13,12 @@ export const signIn =(email, senha) =>
         password: senha
 })
 
+export const singOut=()=>
+    supabase.auth.singOut();
+
+async function getCurrentUser() {
+    const {data,error} = await supabase.auth.getUser();
+    return {user:data?.user ?? null,error};
+}
+
 

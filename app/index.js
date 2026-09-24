@@ -38,13 +38,14 @@ export default function Login() {
                 console.log('Erro', error.message);
                 return;
             }
-
+           
             console.log("entrando na data")
             if(data?.user){
-              return  Alert.alert("Login realizado com sucesso")
-               router.push('/HomeScreen')
-             
-
+              
+                router.push('/(app)/Home');
+              return  Alert.alert("Login realizado com sucesso");
+              
+            
             } else{
                 Alert.alert("Erro", "Não foi possivel encontrar o usuario.");
             }
