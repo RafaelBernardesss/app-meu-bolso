@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     disabled: {
         opacity: 6
     },
-    text: {
+    title: {
         color: '#fff',
         fontSize: 16,
         fontWeight: '700'
