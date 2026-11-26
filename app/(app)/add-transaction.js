@@ -36,6 +36,7 @@ export default function transaction(){
              <View style={styles.row}>
                     {['receita', 'despesa'].map(x=><TouchableOpacity key={x}
                     style={[styles.type, x==tipo&&styles.selected]}
+                    onPress={() => {setTipo(x);setCategoriaId(null);}}
                     >
                     <Text>{x==='receita' ? 'Receita':'Despesa'}</Text>
                     </TouchableOpacity>)}
