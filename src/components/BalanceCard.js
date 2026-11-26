@@ -1,36 +1,22 @@
-import React from 'react';
-import {Text, StyleSheet} from 'react-native';
+// ============================================================================
+// COMPONENTE: BalanceCard  (cartão escuro com o SALDO ATUAL)
+// ----------------------------------------------------------------------------
+// Exemplo de COMPOSIÇÃO: usamos o AppCard como base e apenas trocamos a cor.
+// ============================================================================
 
-import AppCard from './AppCard.js'
-import {formatCurrency} from '../utils/format.js'
+import { Text, StyleSheet } from 'react-native';
+import AppCard from './AppCard';
+// formatCurrency transforma 1234.5 em "R$ 1.234,50".
+import { formatCurrency } from '../utils/format';
 
-export default function BalanceCard({balance}) {
-    return (
-        
-        <AppCard style={styles.card}>
-            <Text style={styles.title}>Saldo Atual</Text>
-            <Text style={styles.balance}>{formatCurrency(balance)}</Text>
-        </AppCard>
-    );
+// Recebe apenas uma prop: "balance" (o saldo já calculado pela home).
+export default function BalanceCard({ balance }) {
+  return <AppCard style={styles.card}>
+    <Text style={styles.label}>Saldo atual</Text>
+    <Text style={styles.value}>{formatCurrency(balance)}</Text>
+  </AppCard>;
 }
-
-const styles = StyleSheet.create({
-    card: {
-        backgroundColor: '#2f3640',
-        padding: 20,
-        margin: 10,
-        borderRadius: 10,
-    },
-    title: {
-        fontSize: 18,
-        fontWeight: '900',
-        marginBottom: 10,
-        color: '#dcdde1'
-    },
-    balance: {
-        fontSize: 30,
-        fontWeight: '900',
-        marginTop: 6,
-        color: '#fff',
-    },
+const styles=StyleSheet.create({
+  card:{backgroundColor:'#2f3640'}, // sobrescreve o fundo branco do AppCard
+  label:{color:'#dcdde1'}, value:{color:'#fff',fontSize:30,fontWeight:'900',marginTop:6}
 });
