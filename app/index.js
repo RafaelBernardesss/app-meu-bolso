@@ -42,7 +42,7 @@ export default function Login() {
             console.log("entrando na data")
             if(data?.user){
               
-                router.push('/(app)/Home');
+                router.push('/(app)/home');
               return  Alert.alert("Login realizado com sucesso");
               
             

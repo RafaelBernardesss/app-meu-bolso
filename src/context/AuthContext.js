@@ -8,7 +8,7 @@
 // ============================================================================
 
 import { createContext, useContext, useEffect, useState } from 'react';
-import { supabase } from '../services/supabase';
+import { supabase } from '../service/supabase.js';
 
 // Cria o "quadro de avisos" (contexto), inicialmente vazio (null).
 const AuthContext=createContext(null);

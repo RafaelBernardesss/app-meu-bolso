@@ -12,12 +12,12 @@ import { Alert, Image, ScrollView, StyleSheet, Text, View } from 'react-native';
 // ImagePicker: biblioteca do Expo que abre a galeria de fotos do aparelho.
 import * as ImagePicker from 'expo-image-picker';
 // uploadAvatar: envia a foto escolhida para o Supabase Storage.
-import {uploadAvatar} from '../../src/services/storageService';
+import {uploadAvatar} from '../../src/service/storageService.js';
 import { router } from 'expo-router';
-import AppButton from '../../src/components/AppButton';
-import AppInput from '../../src/components/AppInput';
-import { supabase } from '../../src/services/supabase';
-import { signOut } from '../../src/services/authService';
+import AppButton from '../../src/components/AppButton.js';
+import AppInput from '../../src/components/AppInput.js';
+import { supabase } from '../../src/service/supabase.js';
+import { signOut } from '../../src/service/authService.js';
 // ⚠️ Observação do professor: a função chooseImage (mais abaixo) usa "getCurrentUser",
 // mas ela NÃO foi importada aqui. Sem "import { getCurrentUser } from '../../src/services/authService'"
 // (ou adicionando-a na linha acima junto com signOut), o app dá erro ao escolher a foto.

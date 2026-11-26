@@ -9,11 +9,11 @@ import { useEffect, useState } from 'react';
 import { Alert, ScrollView, StyleSheet, Text, TouchableOpacity } from 'react-native';
 // useLocalSearchParams: lê os parâmetros enviados pela tela anterior (aqui, o "id").
 import { router, useLocalSearchParams } from 'expo-router';
-import AppButton from '../../src/components/AppButton';
-import AppInput from '../../src/components/AppInput';
-import { getCurrentUser } from '../../src/services/authService';
-import { getTransaction, updateTransaction, deleteTransaction } from '../../src/services/transactionService';
-import { validateTransaction } from '../../src/utils/validation';
+import AppButton from '../../src/components/AppButton.js';
+import AppInput from '../../src/components/AppInput.js';
+import { getCurrentUser } from '../../src/service/authService.js';
+import { deleteTransaction, getTransaction, updateTransaction } from '../../src/service/transactionService.js';
+import { validateTransaction } from '../../src/utils/validation.js';
 
 export default function EditTransaction(){
   // Pega o "id" que a home enviou em router.push({... params:{id}}).

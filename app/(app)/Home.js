@@ -7,22 +7,22 @@
 
 // useCallback: "congela" uma função para ela não ser recriada a cada redesenho.
 import { useCallback, useState } from 'react';
-import { ActivityIndicator, Alert, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { ActivityIndicator, Alert, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 // useFocusEffect: roda um código TODA VEZ que a tela ganha o foco
 // (inclusive quando voltamos de outra tela, como "Nova transação").
 import { router, useFocusEffect } from 'expo-router';
 // Componentes visuais que montam a tela:
-import BalanceCard from '../../src/components/BalanceCard';       // cartão do saldo
-import SummaryCard from '../../src/components/SummaryCard';       // cartões de receitas/despesas
-import TransactionList from '../../src/components/TransactionList'; // lista de transações
-import FloatingButton from '../../src/components/FloatingButton'; // botão redondo "+"
-import AppButton from '../../src/components/AppButton';
+import AppButton from '../../src/components/AppButton.js';
+import BalanceCard from '../../src/components/BalanceCard.js'; // cartão do saldo
+import FloatingButton from '../../src/components/FloatingButton.js'; // botão redondo "+"
+import SummaryCard from '../../src/components/SummaryCard.js'; // cartões de receitas/despesas
+import TransactionList from '../../src/components/TransactionList.js'; // lista de transações
 // Serviços = funções que falam com o Supabase ou com recursos do celular.
-import { getCurrentUser, signOut } from '../../src/services/authService';
-import { listTransactions } from '../../src/services/transactionService';
+import { getCurrentUser } from '../../src/service/authService.js';
 import {
   generatePdf
-} from '../../src/services/reportService';
+} from '../../src/service/reportService.js';
+import { listTransactions } from '../../src/service/transactionService.js';
 
 
 export default function Home(){

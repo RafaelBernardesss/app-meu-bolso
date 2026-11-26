@@ -9,13 +9,13 @@
 import { useEffect, useState } from 'react';
 import { Alert, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { router } from 'expo-router';
-import AppButton from '../../src/components/AppButton';
-import AppInput from '../../src/components/AppInput';
-import { getCurrentUser } from '../../src/services/authService';
-import { createTransaction } from '../../src/services/transactionService';
-import { listCategories } from '../../src/services/categoryService';
+import AppButton from '../../src/components/AppButton.js';
+import AppInput from '../../src/components/AppInput.js';
+import { getCurrentUser } from '../../src/service/authService.js';
+import { createTransaction } from '../../src/service/transactionService.js';
+import { listCategories } from '../../src/service/categoryService.js';
 // validateTransaction: confere se os campos estão corretos (veja utils/validation.js).
-import { validateTransaction } from '../../src/utils/validation';
+import { validateTransaction } from '../../src/utils/validation.js';
 
 export default function AddTransaction(){
   // ----- ESTADOS: um para cada campo do formulário -----

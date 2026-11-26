@@ -12,7 +12,7 @@ import { Stack, router, useSegments } from 'expo-router';
 // algum valor da lista de dependências mudar.
 import { useEffect } from 'react';
 // useAuth: nosso hook que entrega { session, loading } (veja AuthContext.js).
-import { useAuth } from '../../src/context/AuthContext';
+import {  useAuth } from '../../src/context/AuthContext.js';
 
 export default function AppLayout(){
   // session = dados do login (ou null se ninguém logou) | loading = ainda verificando
